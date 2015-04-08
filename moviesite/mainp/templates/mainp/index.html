@@ -1,1 +1,29 @@
-Hello World!!!
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css'%}" />
+
+
+<title>MovReco</title>
+</head>
+
+<body>
+    <div id="page">
+		
+        <div id="header">
+            <div id="headerTitle"><a href="{% url 'mainp:index'%}">MovReco</div>
+            <div id="headerSubText">Movie recommendations and more</div>
+            
+        </div>
+        <div id="bar">
+      </div>
+        <div class="contentTitle"><h1>Options</h1></div>
+        <div class="contentText">
+            <a href="{% url 'polls:index'%}">Go to polls</a>
+        </div>
+</div>
+
+<div id="footer"><a href="http://www.unipi.gr">web development unipi</a></div>
+</body>
+</html>

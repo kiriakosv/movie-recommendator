@@ -1,3 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css'%}" />
+
+
+<title>MovReco</title>
+</head>
+
+<body>
+    <div id="page">
+		
+        <div id="header">
+        	<div id="headerTitle">MovReco</div>
+            <div id="headerSubText">Movie recommendations and more</div>
+            
+        </div>
+        <div id="bar">
+      </div>
+        <div class="contentTitle"><h1>Polls</h1></div>
+        <div class="contentText">
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -10,3 +33,8 @@
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
+        </div>
+</div>
+<div id="footer"><a href="http://www.unipi.gr">web development unipi</a></div>
+</body>
+</html>

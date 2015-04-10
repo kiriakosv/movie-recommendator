@@ -1,7 +1,7 @@
-{% if latest_question_list %}
+{% if movies_of_selected_genre %}
     <ul>
     {% for movie in movies_of_selected_genre %}
-    <li>{{ movie.title }}</li>
+    <li>{{ movie.title }}, {{movie.pub_date.year}}</li>
     {% endfor %}
     </ul>
 {% else %}

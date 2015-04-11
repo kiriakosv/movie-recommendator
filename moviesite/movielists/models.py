@@ -9,6 +9,12 @@ class Movie(models.Model):
     COMEDY = 'CM'
     ADVENTURE = 'AD'
 
+    CLUSTER_A = 'A'
+    CLUSTER_B = 'B'
+    CLUSTER_C = 'C'
+    CLUSTER_D = 'D'
+    CLUSTER_E = 'E'
+
     GENRE_CHOICES = (
             (CRIME, 'Crime'),
             (THRILLER, 'Thriller'),
@@ -17,9 +23,23 @@ class Movie(models.Model):
             (COMEDY, 'Comedy'),
             (ADVENTURE, 'Adventure'),
             )
+
     genre = models.CharField(max_length = 2,
             choices = GENRE_CHOICES,
             default = DRAMA)
+
+    CLUSTER_CHOICES = (
+            (CLUSTER_A, 'Cluster A'),
+            (CLUSTER_B, 'Cluster B'),
+            (CLUSTER_C, 'Cluster C'),
+            (CLUSTER_D, 'Cluster D'),
+            (CLUSTER_E, 'Cluster E'),
+            )
+
+    cluster = models.CharField(max_length = 1,
+            choices = CLUSTER_CHOICES,
+            default = CLUSTER_A)
+
     title = models.CharField(max_length = 50)
     pub_date = models.DateTimeField('date published')
     duration = models.CharField(max_length = 50)

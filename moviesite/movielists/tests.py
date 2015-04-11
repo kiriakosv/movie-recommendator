@@ -6,10 +6,11 @@ from django.core.urlresolvers import reverse
 
 from .models import Movie
 
-def create_movie(title, genre, duration, director, actors, plot):
+def create_movie(title, genre, duration, director, actors, plot, cluster):
     time = timezone.now()
     return Movie.objects.create(title=title, genre=genre, duration=duration,
-            director=director, actors=actors, plot=plot, pub_date=time)
+            director=director, actors=actors, plot=plot, pub_date=time,
+            cluster=cluster)
 
 class MovieTests(TestCase):
 
@@ -35,7 +36,7 @@ class MovieTests(TestCase):
         If no movies exist, an appropriate message should be displayed.
         """
         a_movie = create_movie('fubar', 'SF', 'fubar', 'fubar',
-                'fubar', 'fubar')
+                'fubar', 'fubar', 'A')
         response = self.client.get(reverse('movielists:movie_details',
             args=(1,)))
         self.assertEqual(response.status_code, 200)

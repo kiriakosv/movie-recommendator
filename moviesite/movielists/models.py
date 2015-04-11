@@ -26,7 +26,7 @@ class Movie(models.Model):
     director = models.CharField(max_length = 50)
     actors = models.TextField(max_length = 400)
     plot = models.TextField(max_length = 1000)
-    image = models.ImageField(upload_to="movielists/movie_images/")
+    image = models.ImageField(upload_to="movielists/movie_images/",blank=True)
 
     def __str__(self):
         return "%s, %s" % (self.title, self.pub_date.year)

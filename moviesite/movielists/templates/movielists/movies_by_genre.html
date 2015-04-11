@@ -1,7 +1,7 @@
 {% if movies_of_selected_genre %}
     <ul>
     {% for movie in movies_of_selected_genre %}
-    <li>{{ movie.title }}, {{movie.pub_date.year}}</li>
+    <li><a href="{% url 'movielists:movie_details' movie.id %}">{{ movie.title }}, {{movie.pub_date.year}}</a></li>
     {% endfor %}
     </ul>
 {% else %}

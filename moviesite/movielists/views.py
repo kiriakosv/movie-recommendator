@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Movie
 
@@ -10,3 +10,7 @@ def movies_by_genre(request, genre):
     movies_of_selected_genre = Movie.objects.all().filter(genre = genre)
     context = {'movies_of_selected_genre': movies_of_selected_genre}
     return render(request, 'movielists/movies_by_genre.html', context)
+
+def movie_details(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    return render(request, 'movielists/movie_details.html', {'movie': movie})

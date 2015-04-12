@@ -1,26 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css'%}" />
+{% extends "site_template/site_template.html" %}
 
-
-<title>MovReco</title>
-</head>
-
-<body>
-    <div id="page">
-		
-        <div id="header">
-            <div id="headerTitle"><a href="{% url 'mainp:index'%}">MovReco</a></div>
-            <div id="headerSubText">Movie recommendations and more</div>
-            
-        </div>
-        <div id="bar">
-      </div>
-        <div class="contentTitle"><h1>Movie Genres</h1></div>
-        <div class="contentText">
+{% block content %}
+<div class="contentTitle"><h1>Genres</h1></div>
+<div class="contentText">
        <ul>
            <li><a href="{% url 'movielists:movies_by_genre' 'CR' %}">Crime</a></li>
            <li><a href="{% url 'movielists:movies_by_genre' 'TH' %}">Thriller</a></li>
@@ -29,8 +11,6 @@
            <li><a href="{% url 'movielists:movies_by_genre' 'CM' %}">Comedy</a></li>
            <li><a href="{% url 'movielists:movies_by_genre' 'AD' %}">Adventure</a></li>
        </ul>
-        </div>
 </div>
-<div id="footer"><a href="http://www.unipi.gr">web development unipi</a></div>
-</body>
-</html>
+</div>
+{% endblock %}

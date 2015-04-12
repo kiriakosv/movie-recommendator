@@ -31,7 +31,7 @@ class MovieTests(TestCase):
             args=(4,)))
         self.assertEqual(response.status_code, 404)
 
-    def test_view_with_question(self):
+    def test_view_with_existing_movie_no_image(self):
         """
         If no movies exist, an appropriate message should be displayed.
         """

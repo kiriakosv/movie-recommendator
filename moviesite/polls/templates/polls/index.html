@@ -1,27 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css'%}" />
+{% extends "site_template/site_template.html" %}
 
-
-<title>MovReco</title>
-</head>
-
-<body>
-    <div id="page">
-		
-        <div id="header">
-            <div id="headerTitle"><a href="{% url 'mainp:index'%}">MovReco</a></div>
-            <div id="headerSubText">Movie recommendations and more</div>
-            
-        </div>
-        <div id="bar">
-      </div>
-        <div class="contentTitle"><h1>Polls</h1></div>
-        <div class="contentText">
-            {% if latest_question_list %}
+{% block content %}
+<div class="contentTitle"><h1>Questions</h1></div>
+<div class="contentText">
+{% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
     <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
@@ -30,9 +12,6 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
-        </div>
 </div>
-
-<div id="footer"><a href="http://www.unipi.gr">web development unipi</a></div>
-</body>
-</html>
+</div>
+{% endblock %}

@@ -4,3 +4,5 @@
 <p>director: {{ movie.director }}</p>
 <p>actors: {{ movie.actors }}</p>
 <p>plot: <pre>{{ movie.plot }}</pre></p>
+{% load staticfiles %}
+<p>image:<img src=' {{ movie.image.url }}' height='100' width='100' alt="star wars"></p>

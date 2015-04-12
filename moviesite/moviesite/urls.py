@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,4 +10,10 @@ urlpatterns = patterns('',
     url(r'^mainp/', include('mainp.urls', namespace = "mainp")),
     url(r'^movielists/', include('movielists.urls', namespace = "movielists")),
     url(r'^admin/', include(admin.site.urls)),
+)
+
+urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
 )

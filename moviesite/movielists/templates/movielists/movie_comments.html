@@ -1,0 +1,20 @@
+{% extends "site_template/site_template.html" %}
+
+{% block content %}
+<div class="contentTitle"><h1>{{ movie.title }} comments</h1></div>
+<div class="contentText">
+    {% if comments %}
+    <ul>
+        {% for comment in comments %}
+        <li><em>{{ comment.comment_pub_date }}</em>
+        <b>{{ comment.person }}</b> wrote:<br>
+        {{comment.comment_text}}
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no comments posted.</p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
+

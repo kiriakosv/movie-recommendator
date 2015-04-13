@@ -54,3 +54,13 @@ class Movie(models.Model):
 
     def __str__(self):
         return "%s, %s" % (self.title, self.pub_date.year)
+
+class Comment(models.Model):
+    movie = models.ForeignKey(Movie)
+    person = models.CharField(max_length = 50)
+    comment_text = models.TextField(max_length = 200)
+    comment_pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return "from: %s, movie: %s" % (self.person, self.movie)
+

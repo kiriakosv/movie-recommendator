@@ -12,5 +12,9 @@
 <p>actors: {{ movie.actors }}</p>
 <p>plot: <pre>{{ movie.plot }}</pre></p>
 </div>
+<div id='comment_section'>
+<br>
+<a href="{% url 'movielists:movie_comments' movie.id %}">Comments</a>
+</div>
 </div>
 {% endblock %}

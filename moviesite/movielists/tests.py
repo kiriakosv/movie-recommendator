@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 
-from .models import Movie
+from .models import Movie, Comment
 
 def create_movie(title, genre, duration, director, actors, plot, cluster):
     time = timezone.now()
@@ -38,7 +38,18 @@ class MovieTests(TestCase):
         a_movie = create_movie('fubar', 'SF', 'fubar', 'fubar',
                 'fubar', 'fubar', 'A')
         response = self.client.get(reverse('movielists:movie_details',
-            args=(1,)))
+            args=(a_movie.id,)))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, a_movie.title)
 
+class CommentTests(TestCase):
+    def test_movie_with_no_comments(self):
+        """
+        If a movie has no comments, an appropriate message should be displayed.
+        """
+        a_movie = create_movie('fubar', 'SF', 'fubar', 'fubar',
+                'fubar', 'fubar', 'A')
+        response = self.client.get(reverse('movielists:movie_comments',
+            args=(a_movie.id,)))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There are no comments posted.")

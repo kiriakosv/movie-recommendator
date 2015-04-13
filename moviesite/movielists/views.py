@@ -14,3 +14,9 @@ def movies_by_genre(request, genre):
 def movie_details(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     return render(request, 'movielists/movie_details.html', {'movie': movie})
+
+def movie_comments(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    comments = movie.comment_set.all()
+    context = {'movie': movie, 'comments': comments}
+    return render(request, 'movielists/movie_comments.html', context)

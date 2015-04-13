@@ -9,4 +9,6 @@ urlpatterns = [
             name='movies_by_genre'),
         url(r'^(?P<movie_id>[0-9]+)/details/$', views.movie_details,
             name='movie_details'),
+        url(r'^(?P<movie_id>[0-9]+)/comments/$', views.movie_comments,
+            name='movie_comments'),
 ]

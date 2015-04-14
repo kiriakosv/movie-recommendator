@@ -20,10 +20,11 @@
 <form action="{% url 'movielists:make_a_comment' movie.id %}" method="post">
     {% csrf_token %}
     Name:<br>
-    <input type="text" name="user_name">
+    <input type="text" name="user_name" required>
     <br>
     Comment:<br>
-    <textarea name="comment_body"rows="4" cols="50" maxlength="200"></textarea>
+    <textarea name="comment_body"rows="4" cols="50" maxlength="200" required>
+</textarea>
     <br>
     <input type="submit" value="Submit Comment">
 </form>

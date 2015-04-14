@@ -11,4 +11,6 @@ urlpatterns = [
             name='movie_details'),
         url(r'^(?P<movie_id>[0-9]+)/comments/$', views.movie_comments,
             name='movie_comments'),
+        url(r'^(?P<movie_id>[0-9]+)/submit_comment/$', views.make_a_comment,
+            name='make_a_comment'),
 ]

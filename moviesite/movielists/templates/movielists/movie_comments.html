@@ -14,6 +14,20 @@
     {% else %}
     <p>There are no comments posted.</p>
     {% endif %}
+    <div id='new_comment'>
+        <br>
+        <h2>Post a new comment</h2>
+<form action="{% url 'movielists:make_a_comment' movie.id %}" method="post">
+    {% csrf_token %}
+    Name:<br>
+    <input type="text" name="user_name">
+    <br>
+    Comment:<br>
+    <textarea name="comment_body"rows="4" cols="50" maxlength="200"></textarea>
+    <br>
+    <input type="submit" value="Submit Comment">
+</form>
+</div>
 </div>
 </div>
 {% endblock %}

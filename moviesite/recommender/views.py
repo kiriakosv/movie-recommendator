@@ -5,4 +5,5 @@ from django.core.urlresolvers import reverse
 from .models import RecommenderChoice, RecommenderQuestion
 
 def index(request):
-    return HttpResponse("Hello World!")
+    context = {}
+    return render(request, 'recommender/index.html', context)

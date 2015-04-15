@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     url(r'^recommender/', include('recommender.urls', namespace = "recommender")),
     url(r'^polls/', include('polls.urls', namespace = "polls")),
     url(r'^mainp/', include('mainp.urls', namespace = "mainp")),
-    url(r'^serieslists/', include('movielists.urls', namespace = "movielists")),
+    url(r'^movielists/', include('movielists.urls', namespace = "movielists")),
     url(r'^admin/', include(admin.site.urls)),
 )
 

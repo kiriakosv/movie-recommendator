@@ -4,11 +4,11 @@ from .models import RecommenderQuestion, RecommenderChoice
 
 class ChoiceInline(admin.TabularInline):
     model = RecommenderChoice
-    extra = 3
+    extra = 2
 
 class RecommenderQuestionAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['question_text']}),
+        (None,               {'fields': ['question_text', 'question_name']}),
     ]
     inlines = [ChoiceInline]
     list_display = ('question_text',)

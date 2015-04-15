@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'polls',
     'mainp',
     'movielists',
+    'recommender'
 )
 
 MIDDLEWARE_CLASSES = (

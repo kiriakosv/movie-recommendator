@@ -12,11 +12,8 @@ class Movie(models.Model):
     COMEDY = 'CM'
     ADVENTURE = 'AD'
 
-    CLUSTER_A = 'A'
-    CLUSTER_B = 'B'
-    CLUSTER_C = 'C'
-    CLUSTER_D = 'D'
-    CLUSTER_E = 'E'
+    YES = 'Y'
+    NO = 'N'
 
     GENRE_CHOICES = (
             (CRIME, 'Crime'),
@@ -31,21 +28,29 @@ class Movie(models.Model):
             choices = GENRE_CHOICES,
             default = DRAMA)
 
-    CLUSTER_CHOICES = (
-            (CLUSTER_A, 'Cluster A'),
-            (CLUSTER_B, 'Cluster B'),
-            (CLUSTER_C, 'Cluster C'),
-            (CLUSTER_D, 'Cluster D'),
-            (CLUSTER_E, 'Cluster E'),
+    VIOLENCE_CHOICES = (
+            (YES, 'Yes'),
+            (NO, 'No'),
             )
 
-    cluster = models.CharField(max_length = 1,
-            choices = CLUSTER_CHOICES,
-            default = CLUSTER_A)
+    KILLING_CHOICES = (
+            (YES, 'Yes'),
+            (NO, 'No'),
+            )
+
+
+    violence = models.CharField(max_length = 1,
+            choices = VIOLENCE_CHOICES,
+            default = NO)
+
+    killing = models.CharField(max_length = 1,
+            choices = KILLING_CHOICES,
+            default = NO)
+
 
     title = models.CharField(max_length = 50)
     pub_date = models.DateTimeField('date published')
-    duration = models.CharField(max_length = 50)
+    duration = models.IntegerField(default = 0)
     director = models.CharField(max_length = 50)
     actors = models.TextField(max_length = 400)
     plot = models.TextField(max_length = 1000)

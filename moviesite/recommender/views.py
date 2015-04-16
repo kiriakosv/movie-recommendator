@@ -5,5 +5,10 @@ from django.core.urlresolvers import reverse
 from .models import RecommenderChoice, RecommenderQuestion
 
 def index(request):
-    context = {}
+    question_list = RecommenderQuestion.objects.all()
+    context = {'question_list': question_list}
     return render(request, 'recommender/index.html', context)
+
+def results(request):
+    context = {}
+    return render(request, 'recommender/results.html', context)

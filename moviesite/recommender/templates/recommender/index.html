@@ -3,10 +3,21 @@
 {% block content %}
 <div class="contentTitle"><h1>Which TV Series Should I see?</h1></div>
 <div class="contentText">
-    <p>
-    This test will help you find movies which you may like.<br>
-    <a href="#">Get the test</a>
-    </p>
+{% if question_list %}
+<form action="{% url 'recommender:results' %}" method="post">
+{% csrf_token %}
+{% for question in question_list %}
+<h3>{{ question.question_text }}</h3>
+{% for choice in question.recommenderchoice_set.all %}
+<input type="radio" name="{{ question.question_name }}" id="choice{{ forloop.counter }}" {% if forloop.first %} checked {% endif %} value="{{ choice.value }}" />
+<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></br>
+{% endfor %}
+{% endfor %}
+<input type="submit" value="See my results" />
+</form>
+{% else %}
+    <p>No questions are available.</p>
+{% endif %}
 </div>
 </div>
 {% endblock %}

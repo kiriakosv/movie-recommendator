@@ -10,8 +10,11 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>No movies are available.</p>
+    <p>No movies are available.</p><br>
     {% endif %}
+    <div class="footer_links">
+    <a href="{% url 'movielists:index' %}">Back to genre list</a>
+    </div>
 </div>
 </div>
 {% endblock %}

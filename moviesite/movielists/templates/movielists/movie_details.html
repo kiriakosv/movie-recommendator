@@ -1,20 +1,20 @@
 {% extends "site_template/site_template.html" %}
 
 {% block content %}
-<div class="contentTitle"><h1>{{ movie.title }}</h1></div>
+<div class="contentTitle"><h1>{{ movie.title }}, {{ movie.pub_date.year }}</h1></div>
 <div class="contentText">
     {% if movie.image %}
         <h2> <img src=' {{ movie.image.url }}' height='100' width='100' alt="star wars"></h2>
-<p>publication date: {{ movie.pub_date.year }}</p>
     {% endif%}
 <p>duration: {{ movie.duration }} min</p>
 <p>director: {{ movie.director }}</p>
 <p>actors: {{ movie.actors }}</p>
-<p>plot: <pre>{{ movie.plot }}</pre></p>
+<p>plot: {{ movie.plot }}</p>
 </div>
-<div id='comment_section'>
+<div class='footer_links'>
 <br>
-<a href="{% url 'movielists:movie_comments' movie.id %}">Comments</a>
+<a href="{% url 'movielists:movie_comments' movie.id %}">Comments</a><br>
+<a href="{% url 'movielists:index' %}">Back to genre list</a>
 </div>
 </div>
 {% endblock %}

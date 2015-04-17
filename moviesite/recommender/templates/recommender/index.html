@@ -12,8 +12,9 @@
 <input type="radio" name="{{ question.question_name }}" id="choice{{ forloop.counter }}" {% if forloop.first %} checked {% endif %} value="{{ choice.value }}" />
 <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></br>
 {% endfor %}
+<a href="#submit">I want to submit now</a><br>
 {% endfor %}
-<input type="submit" value="See my results" />
+<a name="submit"><input type="submit" value="See my results" /></a>
 </form>
 {% else %}
     <p>No questions are available.</p>

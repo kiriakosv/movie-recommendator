@@ -3,7 +3,9 @@
 {% block content %}
 <div class="contentTitle"><h1>Which TV Series Should I see?</h1></div>
 <div class="contentText">
-Hello world!
+    {% for a_key in a %}
+    {{ a_key }} 
+    {% endfor %}
 </div>
 </div>
 {% endblock %}

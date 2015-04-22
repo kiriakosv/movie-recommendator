@@ -54,6 +54,8 @@ class Movie(models.Model):
     director = models.CharField(max_length = 50)
     actors = models.TextField(max_length = 400)
     plot = models.TextField(max_length = 1000)
+    rating_count = models.IntegerField(default = 0)
+    rating_sum = models.IntegerField(default = 0)
     image = models.ImageField(upload_to="",
             blank=True)
 

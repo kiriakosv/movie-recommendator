@@ -8,6 +8,23 @@
     {% else %}
     <h2><img src='/media/no_image.jpg' height='200' width='150' alt="no image"></h2>
     {% endif %}
+    {% if movie.rating_count == 0 %}
+    No ratings available
+    {% else %}
+    Rating : <b>{{ total_rating }} / 5</b> (based on {{ movie.rating_count }} ratings)
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <select>
+            <option value = 1>1/5</option>
+            <option value = 2>2/5</option>
+            <option value = 3>3/5</option>
+            <option value = 4>4/5</option>
+            <option value = 5>5/5</option>
+        </select>
+        <input type="submit" value="Rate">
+    </form>
+    <br>
     <p><b>Duration</b>: {{ movie.duration }} min</p>
     <p><b>Director</b>: {{ movie.director }}</p>
     <p><b>Actors</b>: {{ movie.actors }}</p>

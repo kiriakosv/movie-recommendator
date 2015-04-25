@@ -16,7 +16,10 @@ def movies_by_genre(request, genre):
 
 def movie_details(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
-    return render(request, 'movielists/movie_details.html', {'movie': movie})
+    total_rating = 0
+    if movie.rating_count != 0:
+        total_rating = movie.rating_sum/movie.rating_count
+    return render(request, 'movielists/movie_details.html', {'movie': movie, 'total_rating': total_rating})
 
 def movie_comments(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)

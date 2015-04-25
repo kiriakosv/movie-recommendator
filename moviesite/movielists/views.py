@@ -40,3 +40,11 @@ def make_a_comment(request, movie_id):
         new_comment.save()
         return HttpResponseRedirect(reverse('movielists:movie_comments',
             args=(movie.id,)))
+
+def rate(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    movie.rating_count += 1
+    movie.rating_sum += int(request.POST['rating'])
+    movie.save()
+    total_rating = movie.rating_sum/movie.rating_count
+    return render(request, 'movielists/movie_details.html', {'movie': movie, 'total_rating': total_rating})

@@ -11,11 +11,11 @@
     {% if movie.rating_count == 0 %}
     No ratings available
     {% else %}
-    Rating : <b>{{ total_rating }} / 5</b> (based on {{ movie.rating_count }} ratings)
+    Rating : <b>{{ total_rating }} / 5</b> (based on {{ movie.rating_count }} rating{{ movie.rating_count|pluralize }})
     {% endif %}
-    <form action="" method="post">
+    <form action="{% url 'movielists:rate' movie.id %}" method="post">
         {% csrf_token %}
-        <select>
+        <select name = "rating">
             <option value = 1>1/5</option>
             <option value = 2>2/5</option>
             <option value = 3>3/5</option>

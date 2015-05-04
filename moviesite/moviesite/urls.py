@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = patterns('',
     url(r'^recommender/', include('recommender.urls', namespace = "recommender")),
     url(r'^polls/', include('polls.urls', namespace = "polls")),
-    url(r'^mainp/', include('mainp.urls', namespace = "mainp")),
+    url(r'^', include('mainp.urls', namespace = "mainp")),
     url(r'^movielists/', include('movielists.urls', namespace = "movielists")),
     url(r'^admin/', include(admin.site.urls)),
 )

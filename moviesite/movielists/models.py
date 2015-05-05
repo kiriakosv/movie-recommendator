@@ -56,6 +56,7 @@ class Movie(models.Model):
     plot = models.TextField(max_length = 1000)
     rating_count = models.IntegerField(default = 0)
     rating_sum = models.IntegerField(default = 0)
+    total_rating = models.IntegerField(default = 0)
     image = models.ImageField(upload_to="",
             blank=True)
 

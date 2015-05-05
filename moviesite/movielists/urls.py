@@ -15,4 +15,5 @@ urlpatterns = [
             name='make_a_comment'),
         url(r'^(?P<movie_id>[0-9]+)/details/rated$', views.rate,
             name='rate'),
+        url(r'^top-10/$', views.top_rated, name='top_rated'),
 ]

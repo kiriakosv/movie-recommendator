@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'movielists/index.html', context)
 
 def movies_by_genre(request, genre):
-    movies_of_selected_genre = Movie.objects.all().filter(genre = genre)
+    movies_of_selected_genre = Movie.objects.all().filter(genre = genre).order_by('title')
     context = {'movies_of_selected_genre': movies_of_selected_genre}
     return render(request, 'movielists/movies_by_genre.html', context)
 
@@ -45,6 +45,12 @@ def rate(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     movie.rating_count += 1
     movie.rating_sum += int(request.POST['rating'])
+    movie.total_rating = movie.rating_sum / movie.rating_count
     movie.save()
     total_rating = movie.rating_sum/movie.rating_count
     return render(request, 'movielists/movie_details.html', {'movie': movie, 'total_rating': total_rating})
+
+def top_rated(request):
+    top_rated_movies = Movie.objects.all().order_by('-total_rating')[:10]
+    context = {'top_rated_movies': top_rated_movies}
+    return render(request, 'movielists/top_10.html', context)

@@ -5,17 +5,16 @@
 <link rel="stylesheet" type="text/css" href="{% static 'mainp/style.css'%}" />
 
 
-<title>MovReco</title>
+<title>MovieHub</title>
 </head>
 
 <body>
     <div id="page">
-		
-        <div id="header">
-            <div id="headerTitle"><a href="{% url 'mainp:index'%}">MoviesHub</a></div>
-            <div id="headerSubText">Learn about the hottest movies</div>
+		<a href="{% url 'mainp:index' %}">
+        <div id="header" style="height:250px; background-image:url({% static 'mainp/images/banner.png' %});background-size: cover;">
             
         </div>
+        </a>
         <div id="bar">
       </div>
         {% block content %}

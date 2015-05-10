@@ -142,7 +142,9 @@ font-size:9px;
 color:#223F8D;
 padding-top:36px;
 }
-
+#initial_choices {
+text-align:center;
+}
 #go_back {
 text-align:center;
 }

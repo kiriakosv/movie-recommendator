@@ -1,12 +1,25 @@
 {% extends "site_template/site_template.html" %}
 
 {% block content %}
-<div class="contentTitle"><h1>Options</h1></div>
+<div class="contentTitle"><h1>Welcome to MovieHub</h1></div>
 <div class="contentText">
+    <style>
+        p {text-align:center;}
+    </style>
+    <p>
+    MovieHub is a movie portal, where you can learn about new movies,
+    participate in online polls and get recommendations for movies you
+    may like.
+    </p>
+    <p>
+    Start your experience by selecting one of the choices below.
+    </p>
+<div id="initial_choices">
 <a href="{% url 'movielists:index'%}">See movies by genre</a><br>
 <a href="{% url 'movielists:top_rated' %}">Show top rated movies</a><br>
 <a href="{% url 'polls:index'%}">Go to polls</a><br>
 <a href="{% url 'recommender:index'%}">Get a recommendation</a>
+</div>
 </div>
 </div>
 {% endblock %}
